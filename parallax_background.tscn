@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwaule1nwnyjt"]
+
+[ext_resource type="Texture2D" uid="uid://bbsclftm867dh" path="res://pixelart_starfields/pixelart_starfield.png" id="1_efcfs"]
+[ext_resource type="Texture2D" uid="uid://bsyespvxkc1hy" path="res://pixelart_starfields/pixelart_starfield_corona.png" id="2_x3lkm"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2305, 0)
+
+[node name="PixelartStarfield" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(576, 319)
+scale = Vector2(3.6, 3.225)
+texture = ExtResource("1_efcfs")
+
+[node name="PixelartStarfieldCorona" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1728.5, 319)
+scale = Vector2(3.60313, 3.225)
+texture = ExtResource("2_x3lkm")

@@ -1,0 +1,297 @@
+[gd_scene load_steps=34 format=3 uid="uid://cuxhnk1b84eh7"]
+
+[ext_resource type="Texture2D" uid="uid://fwybynmhk1wb" path="res://Player/Player animations/Idle-space.png" id="1_uua4l"]
+[ext_resource type="Script" path="res://Player/Player.cs" id="1_v37xg"]
+[ext_resource type="Texture2D" uid="uid://ctwm0te0lawxn" path="res://Player/Player animations/Jump-space.png" id="2_gty7r"]
+[ext_resource type="Texture2D" uid="uid://d1v7gupkf8iar" path="res://Player/Player animations/Run-space.png" id="3_3mny8"]
+[ext_resource type="Texture2D" uid="uid://c62k5gwuym0ro" path="res://Player/Player animations/Down-space (2).png" id="4_rm12s"]
+[ext_resource type="Texture2D" uid="uid://cmmy5aox41q1k" path="res://Player/Player animations/shift_run.png" id="5_iw2t6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hrtk"]
+size = Vector2(26, 39.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unwk1"]
+atlas = ExtResource("1_uua4l")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so280"]
+atlas = ExtResource("1_uua4l")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ut6r"]
+atlas = ExtResource("2_gty7r")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayjar"]
+atlas = ExtResource("2_gty7r")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xvgk"]
+atlas = ExtResource("2_gty7r")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blffk"]
+atlas = ExtResource("2_gty7r")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d2n8"]
+atlas = ExtResource("3_3mny8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxttj"]
+atlas = ExtResource("3_3mny8")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2g2y"]
+atlas = ExtResource("3_3mny8")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkw3x"]
+atlas = ExtResource("3_3mny8")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ujmi"]
+atlas = ExtResource("3_3mny8")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib7r3"]
+atlas = ExtResource("3_3mny8")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iw7x"]
+atlas = ExtResource("3_3mny8")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku364"]
+atlas = ExtResource("3_3mny8")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0qyt"]
+atlas = ExtResource("4_rm12s")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c84pe"]
+atlas = ExtResource("4_rm12s")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtsru"]
+atlas = ExtResource("4_rm12s")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spg1t"]
+atlas = ExtResource("4_rm12s")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mmpe"]
+atlas = ExtResource("4_rm12s")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwej3"]
+atlas = ExtResource("4_rm12s")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2epd"]
+atlas = ExtResource("5_iw2t6")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6w1w"]
+atlas = ExtResource("5_iw2t6")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qk4j"]
+atlas = ExtResource("5_iw2t6")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4dbs"]
+atlas = ExtResource("5_iw2t6")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a32bd"]
+atlas = ExtResource("5_iw2t6")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clvma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unwk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so280")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ut6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayjar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xvgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blffk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xvgk")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d2n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxttj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2g2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkw3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ujmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib7r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iw7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku364")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0qyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c84pe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtsru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spg1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mmpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwej3")
+}],
+"loop": false,
+"name": &"shift",
+"speed": 22.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2epd")
+}],
+"loop": true,
+"name": &"shift_const",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6w1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qk4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4dbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a32bd")
+}],
+"loop": true,
+"name": &"shift_run",
+"speed": 4.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_v37xg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.624992, 0.375008)
+shape = SubResource("RectangleShape2D_0hrtk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.205, 2.205)
+limit_bottom = 1298905
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+scale = Vector2(1.26563, 1.26563)
+sprite_frames = SubResource("SpriteFrames_clvma")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 876.0
+offset_right = 94.0
+offset_bottom = 954.0
+theme_override_font_sizes/font_size = 51
+text = "?"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_left = 297.0
+offset_top = 49.0
+offset_right = 1666.0
+offset_bottom = 871.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/italics_font_size = 1
+theme_override_font_sizes/mono_font_size = 1
+theme_override_font_sizes/normal_font_size = 40
+text = "Это руководство для изучения языка C#. Тут вы можетизучить и просмотреть все необходимые функции в C#.
+Для начала давайте посмотрим, как должна выглядеть базовая конструкция. Вот она:
+using System;
+	class Program {
+		static void Main() {
+	}
+}
+
+Теперь давайте разберем каждый элемент по отдельности. 
+using System; - эту конструкцию вы будете писать абсолютно в каждом своем коде, она говорит о том, что код будет использовать систему вашего устройста для любых операций. Также конструкция using применяется для использования любых библиотек. То есть допустим при создании нашей игры в начале каждого куска кода кроме using System; мы должны были прописывать using Godot;, ведь использовали его библиотеку для написания всех функций.
+class Program { - мы использовали эту конструкцию для создания класса нашей программы, Program - название для класса. Обычно название для основного кода дается такое же, как называется ваш файл с программой. Но так как в самой игре вам не придется работать с файлами, можете просто писать любое название. Что такое классы, мы разберем далее, а { используется для обозначения, что весь последующий код, до тех пор, пока эта скобка не будет закрыта, относится к классу Program. 
+static void Main() { - эта конструкция используется для создания функции Main() - это функция, которая воспроизводится по умолчанию при запуске программы, в отличии от всех остальных функций, которые вы можете создать сами(как конкретно, узнаете позже), эту функцию не надо вызывать. Скобка также указывает на принадлежность дальнейшего кода к функции Main()
+
+Теперь давайте рассмотрим разные конструкции, которые выполняют видимые действия. 
+Console.WriteLine(\"ваш текст\"); - эта часть кода будет выводить в терминал текст, который вы укажите внутри. ; необходимо указывать в конце каждой строки, которая выполняет какое-то действие. По ходу работы вы сами разберетесь где ее надо ставить, а где не надо. Давайте рассмотрим простейший код с ее использованием.
+using System;
+	class Program {
+		static void Main() {				Console.WriteLine(\"Hello, world!\");
+}
+}
+
+Этот код выведет в терминале Hello, world!"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/RichTextLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.840525, 0.817559, 0.696506, 1)

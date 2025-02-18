@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cabcjiswcifx"]
+
+[ext_resource type="Script" path="res://Button.cs" id="1_qru6n"]
+[ext_resource type="PackedScene" uid="uid://dwaule1nwnyjt" path="res://parallax_background.tscn" id="2_3l66k"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 305.0
+offset_top = 152.0
+offset_right = 845.0
+offset_bottom = 359.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 81
+text = "НАЧАТЬ"
+script = ExtResource("1_qru6n")
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_3l66k")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 325)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

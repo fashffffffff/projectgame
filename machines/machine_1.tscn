@@ -1,0 +1,193 @@
+[gd_scene load_steps=16 format=3 uid="uid://deuhp3jcvmxql"]
+
+[ext_resource type="Texture2D" uid="uid://ct4kgltqnh65f" path="res://machines/Machine-1-broken-space.png" id="1_ie20c"]
+[ext_resource type="Script" path="res://machines/Machine1.cs" id="1_xxa7k"]
+[ext_resource type="Texture2D" uid="uid://cyqhlry2gbik5" path="res://machines/Machine-1-space.png" id="2_fbxtp"]
+[ext_resource type="Texture2D" uid="uid://dkdv3vdlpiekt" path="res://machines/Machine-1-repairing-space.png" id="3_vh3fv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e3ek"]
+atlas = ExtResource("1_ie20c")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxi7d"]
+atlas = ExtResource("3_vh3fv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1vpl"]
+atlas = ExtResource("3_vh3fv")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nip1t"]
+atlas = ExtResource("3_vh3fv")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3sg0"]
+atlas = ExtResource("3_vh3fv")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12ibb"]
+atlas = ExtResource("3_vh3fv")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn6r3"]
+atlas = ExtResource("2_fbxtp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18bkb"]
+atlas = ExtResource("2_fbxtp")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rssom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e3ek")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxi7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1vpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nip1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3sg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12ibb")
+}],
+"loop": false,
+"name": &"repair",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn6r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18bkb")
+}],
+"loop": true,
+"name": &"work",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymknj"]
+size = Vector2(70, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xhun"]
+radius = 59.0085
+
+[node name="Machine1" type="CharacterBody2D"]
+script = ExtResource("1_xxa7k")
+
+[node name="Machine1Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(3.14583, 3.18845)
+sprite_frames = SubResource("SpriteFrames_rssom")
+animation = &"work"
+autoplay = "broken"
+frame_progress = 0.779256
+
+[node name="Machine1Collision2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 51.5)
+shape = SubResource("RectangleShape2D_ymknj")
+
+[node name="Detector" type="Area2D" parent="Machine1Collision2D"]
+position = Vector2(0, -52.5)
+priority = 1
+
+[node name="Test" type="CollisionShape2D" parent="Machine1Collision2D/Detector"]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_5xhun")
+
+[node name="Code" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="Code"]
+offset_left = 825.0
+offset_top = 411.0
+offset_right = 1148.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 60
+text = "Починить"
+
+[node name="Write" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Write"]
+offset_left = 17.0
+offset_top = -3.0
+offset_right = 582.0
+offset_bottom = 302.0
+color = Color(0.828635, 0.872803, 0.795297, 1)
+
+[node name="Label" type="Label" parent="Write/ColorRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_right = 749.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 33
+text = "\"This machine must 
+print \"Hello world\" 
+for you. Write a code using C# 
+for this action.
+(HINT: you should use 
+\"Console.WriteLine(\"your text\");)\""
+
+[node name="TextEdit" type="TextEdit" parent="Write"]
+anchors_preset = -1
+anchor_left = 0.27
+anchor_top = 0.369
+anchor_right = 1.01
+anchor_bottom = 1.116
+offset_left = -92.04
+offset_top = 2.88799
+offset_right = -417.52
+offset_bottom = -160.168
+theme_override_colors/background_color = Color(0.157117, 0.11804, 0.189125, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="ColorRect2" type="ColorRect" parent="Write"]
+offset_left = 1320.0
+offset_top = 52.0
+offset_right = 1697.0
+offset_bottom = 183.0
+color = Color(0.23, 0.23, 0.23, 1)
+
+[node name="Label2" type="Label" parent="Write/ColorRect2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 328.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 26
+
+[node name="Button" type="Button" parent="Write"]
+offset_left = 1714.0
+offset_top = 31.0
+offset_right = 1892.0
+offset_bottom = 103.0
+theme_override_colors/font_disabled_color = Color(1, 0, 0.14902, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0.14902, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0.14902, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0.14902, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0.14902, 1)
+theme_override_colors/font_color = Color(1, 0, 0.15, 1)
+theme_override_font_sizes/font_size = 46
+text = "ВЫЙТИ"
+
+[connection signal="body_entered" from="Machine1Collision2D/Detector" to="." method="onbodyentered"]
+[connection signal="body_exited" from="Machine1Collision2D/Detector" to="." method="onbodyexited"]
+[connection signal="pressed" from="Code/Button" to="." method="_on_button_pressed"]
+[connection signal="text_changed" from="Write/TextEdit" to="." method="OnTextChanged"]
+[connection signal="pressed" from="Write/Button" to="." method="OnButtonPressed"]

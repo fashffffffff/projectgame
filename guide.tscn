@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://jko1wsqbns17"]
+
+[ext_resource type="Script" path="res://Guide.cs" id="1_au6b6"]
+[ext_resource type="Texture2D" uid="uid://datvtw2mq2618" path="res://Enemies/spritesheets/player-idle.png" id="1_brrfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f7ek"]
+size = Vector2(19.9317, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0u3k"]
+atlas = ExtResource("1_brrfo")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt4mq"]
+atlas = ExtResource("1_brrfo")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd1e5"]
+atlas = ExtResource("1_brrfo")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dlys"]
+atlas = ExtResource("1_brrfo")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ld2n"]
+atlas = ExtResource("1_brrfo")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64tln"]
+atlas = ExtResource("1_brrfo")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5cwl"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_k0u3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt4mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd1e5")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_3dlys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ld2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64tln")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvpul"]
+radius = 53.3935
+
+[node name="Guide" type="CharacterBody2D"]
+position = Vector2(2.38419e-07, 1)
+scale = Vector2(1.40479, 1.40479)
+script = ExtResource("1_au6b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.24295e-07, -0.5)
+shape = SubResource("RectangleShape2D_5f7ek")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.19209e-07, -3.55924)
+sprite_frames = SubResource("SpriteFrames_s5cwl")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.141908
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label1" type="Label" parent="CanvasLayer"]
+offset_left = 37.0
+offset_top = 881.0
+offset_right = 667.0
+offset_bottom = 995.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Хей! Ты уже здесь? Я смотрю добрался ты с лихвой...
+Ну ладно, сейчас не об этом. Тебе срочно нужно починить
+все научные приборы. Поспеши!"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 33.0
+offset_top = 833.0
+offset_right = 347.0
+offset_bottom = 875.0
+theme_override_colors/font_color = Color(0.927177, 0.8904, 0.0816919, 1)
+theme_override_font_sizes/font_size = 30
+text = "Научный сотрудник:"
+
+[node name="Detector2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector2"]
+shape = SubResource("CircleShape2D_bvpul")
+
+[connection signal="body_entered" from="Detector2" to="." method="ondetectentered"]
+[connection signal="body_exited" from="Detector2" to="." method="ondetectorexit"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://du41flvqnun72"]
+
+[ext_resource type="Script" path="res://Guide.cs" id="1_jtay4"]
+[ext_resource type="Texture2D" uid="uid://datvtw2mq2618" path="res://Enemies/spritesheets/player-idle.png" id="2_ddcpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f7ek"]
+size = Vector2(19.9317, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0u3k"]
+atlas = ExtResource("2_ddcpb")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt4mq"]
+atlas = ExtResource("2_ddcpb")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd1e5"]
+atlas = ExtResource("2_ddcpb")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dlys"]
+atlas = ExtResource("2_ddcpb")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ld2n"]
+atlas = ExtResource("2_ddcpb")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64tln"]
+atlas = ExtResource("2_ddcpb")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5cwl"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_k0u3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt4mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd1e5")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_3dlys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ld2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64tln")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.0
+}]
+
+[node name="Guide" type="CharacterBody2D"]
+position = Vector2(2.38419e-07, 1)
+scale = Vector2(1.40479, 1.40479)
+script = ExtResource("1_jtay4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.24295e-07, -0.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5f7ek")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.19209e-07, -3.55924)
+sprite_frames = SubResource("SpriteFrames_s5cwl")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.00807254
+flip_h = true
